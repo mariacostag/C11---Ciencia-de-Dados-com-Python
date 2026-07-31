@@ -1,3 +1,11 @@
+"""
+1. Crie um programa que leia seu nome completo e mostre:
+• Seu nome com todas as letras maiúsculas
+• Seu nome com todas as letras minúsculas
+• Quantas letras ao todo tem seu nome
+• E como seria se trocássemos seu último nome para “do Inatel”
+"""
+
 #Entrar com o nome completo
 nome = input("Digite o seu nome completo: ")
 
