@@ -1,0 +1,8 @@
+#Entrar com o nome completo
+nome = input("Digite o seu nome completo: ")
+
+#Saídas
+print(nome.upper()) #mostrar o nome com letras maiúsculas
+print(nome.lower()) #mostrar o nome com letras minúsculas
+print(len(nome)) #nº de caracteres em nome
+print(nome.replace("Gonçalves", "do Inatel")) #troca de nomes
