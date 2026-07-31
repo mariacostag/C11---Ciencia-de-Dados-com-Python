@@ -1,0 +1,21 @@
+"""
+3. Faça um programa que leia o sexo de uma pessoa e diga se ela é
+homem (caso seja digitado M) ou mulher (caso seja digitado F). Caso
+seja digitado algo inválido, continue perguntando até que o usuário
+entre com um sexo válido
+"""
+
+#Exercício 3
+
+#Entrada de dados
+sexo = input("Informe o seu sexo (M ou F): ")
+
+#Validação da entrada
+while sexo != 'M' and sexo != 'F':
+    sexo = input("Valor inválido! Informe o seu sexo (M ou F): ")
+
+#Saída de dados
+if sexo == 'M':
+    print("Você é do sexo masculino")
+elif sexo == 'F':
+    print("Você é do sexo feminino")
