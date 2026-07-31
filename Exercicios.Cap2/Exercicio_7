@@ -1,0 +1,29 @@
+"""
+7. Faça um programa que leia uma palavra. Esse programa deve
+percorrer a palavra e imprimir cada letra em maiúsculo, uma letra por
+linha. No final, deverá informar quantas vogais a palavra tem e se a
+letra ‘A’ está presente nela.
+"""
+
+#Exercício 7
+
+#Entrada de dados
+palavra = input("Digite uma palavra: ")
+
+vogais = 0
+#Saída de dados
+for letra in palavra:
+    print(letra.upper())
+
+    #Contar a quantidade de vogais na palavra
+    if letra.upper() in "AEIOU":
+      vogais += 1
+
+#Mostrar a quantidade de vogais
+print(f"A palavra tem {vogais} vogais")
+
+#Verificar se a palavra tem a letra 'A'
+if "A" in palavra.upper():
+    print("A letra 'A' está presente na palavra")
+else:
+    print("A letra 'A' não está presente na palavra")
