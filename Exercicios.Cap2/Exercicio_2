@@ -1,0 +1,11 @@
+#Importar biblioteca
+import math
+
+#Entrada de dados
+numero = int(input("Entre com o número para calcular a tabuada: "))
+
+#Cálculo da tabuada e saída de dados
+c = 0
+while c <= 10:
+    print(f"{numero} x {c} = {numero * c}")
+    c += 1 #incrementa para ir para o próximo número da tabuada
