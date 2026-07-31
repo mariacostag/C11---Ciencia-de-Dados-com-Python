@@ -1,0 +1,25 @@
+"""
+5. Faça um programa que leia um número entre 1000 e 9999 e mostre na tela
+• qual o número da unidade
+• número da dezena 
+• número da centena 
+• E número do milhar
+"""
+
+#Exercício 5
+
+#Entrada de dados
+numero = input("Digite um número entre 1000 e 9999: ")
+
+#Validação da entrada
+while len(numero) != 4:
+    numero = input("Número inválido! Digite um número entre 1000 e 9999: ")
+
+#Saída de dados
+print(f"Número da unidade: {numero[3]}")
+
+print(f"Número da dezena: {numero[2]}")
+
+print(f"Número da centena: {numero[1]}")
+
+print(f"Número do milhar: {numero[0]}")
