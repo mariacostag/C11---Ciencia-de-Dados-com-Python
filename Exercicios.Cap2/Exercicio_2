@@ -1,3 +1,8 @@
+"""
+2. Mostre a tabuada de um número que o usuário escolher dentro de um
+intervalo específico também escolhido por ele
+"""
+
 #Importar biblioteca
 import math
 
