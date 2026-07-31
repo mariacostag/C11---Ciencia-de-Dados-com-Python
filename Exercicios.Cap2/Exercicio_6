@@ -1,0 +1,32 @@
+""'
+6. Peça ao usuário para entrar com um número decimal. Em seguida, aplique e mostre o resultado:
+• da raiz quadrada deste número 
+• função teto 
+• função chão 
+• sua parte inteira
+"""
+
+#Exercício 6
+
+#Importar biblioteca
+import math
+
+#Entrada de dados
+numero = float(input("Entre com um número decimal: "))
+
+#Validação da entrada
+while numero < 10 and numero > 99:
+    numero = float(input("Número inválido! Entre com um número decimal:"))
+
+#Cálculos das funções e saídas
+raiz = math.sqrt(numero)
+print(f"Raiz quadrada do número: {raiz}")
+
+teto = math.ceil(numero)
+print(f"Função teto do número: {teto}")
+
+chao = math.floor(numero)
+print(f"Função chão do número: {chao}")
+
+inteira = int(numero)
+print(f"Parte inteira do número: {inteira}")
