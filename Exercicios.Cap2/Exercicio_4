@@ -1,0 +1,18 @@
+"""
+4. Desenvolva um script que pergunte a distância de uma viagem em
+Km. Calculeo preço da passagem, cobrando R$0.50 por Km para viagens até 200Km e R$0.45 para viagens mais longas
+"""
+
+#Exercício 4
+
+#Entrada de dados
+distancia = int(input("Qual a distância da viagem em km? "))
+
+#Cálculo da passagem e saída de dados
+if distancia <= 200:
+  passagem = distancia * 0.50
+  print(f"O valor da sua passagem é R${passagem}")
+
+else:
+  passagem = distancia * 0.45
+  print(f"O valor da sua passagem é de R${passagem}")
