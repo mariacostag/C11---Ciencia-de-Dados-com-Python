@@ -1,0 +1,21 @@
+"""
+4. Crie uma matriz de tamanho qualquer. Extraia seu número de linhas e colunas, multiplique-os,
+e diga se esta matriz poderia se tornar um vetor unidimensional com número par ou ímpar de elementos.
+"""
+
+#Criação da matriz
+mtz = np.arange(10, 50, 5)
+mtz = (mtz.reshape(2, 4))
+print(mtz)
+
+#Extrair informações da matriz
+linhas, colunas = mtz.shape #formato da matriz
+print(f'Número de linhas da matriz: {linhas}')
+print(f'Número de colunas da matriz: {colunas}')
+
+#Verificar se pode se tornar um vetor unidimensional
+verifica = linhas * colunas
+if verifica %2 == 0:
+  print('Pode se tornar um vetor unidimensinal de com número par de elementos')
+else:
+    print('Pode se tornar um vetor unidimensinal de com número par de elementos')
