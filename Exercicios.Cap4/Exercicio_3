@@ -1,0 +1,43 @@
+"""
+3. Mini Campo Minado
+a) Crie um NumPy Array 2x2 formado apenas por 0’s
+b) Em seguida, adicione um número 1 em uma posição aleatória desta matriz;
+c) Faça uma entrada de dados para solicitar o usuário que faça uma jogada
+(selecione uma posição da matriz)
+    I. Se ele selecionar todas as posições em que o número 1 não se encontra, mostre a
+    mensagem “Congratulations! You beat the game!:)”
+    II. Senão, se dentro das 3 primeiras jogadas ele acharo número 1, mostre
+    a mensagem “Game Over!:( Try Again!”
+"""
+
+#Criação da matriz
+mtz = np.zeros([2, 2])
+
+#Adicionar o número 1 em posição aleatória
+linha = np.random.randint(0, 2)
+coluna = np.random.randint(0, 2)
+mtz[linha, coluna] = 1
+
+#3 tentativas
+tentativas = 0
+venceu = True
+
+while tentativas < 3:
+  #Entrada com a posição da matriz
+  jogada = input("Entre com a sua jogada: ")
+
+  #Separa a string em dois números
+  linha_jogada, coluna_jogada = jogada.split(",")
+  linha_jogada = int(linha_jogada)
+  coluna_jogada = int(coluna_jogada)
+    
+  tentativas += 1
+    
+  #Verifica se acertou a posição do 1
+  if linha_jogada == linha and coluna_jogada == coluna:
+      venceu = False
+      print("Game Over! :( Try Again!")
+      break
+
+if venceu:
+  print("Congratulations! You beat the game! :)")
