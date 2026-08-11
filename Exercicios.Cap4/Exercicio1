@@ -1,0 +1,22 @@
+#Exercício 1
+
+#Criação dos Arrays
+arr1 = np.ones([8])
+arr2 = np.random.randint(0, 9, 8)
+
+#Soma dos dois Arrays
+arr3 = arr1 + arr2
+
+#Soma de todos os elementos do array
+soma = arr3.sum()
+print(soma)
+
+#Remodelamento do array
+if soma >= 40:
+    #Matriz com mais linhas que colunas
+    arr3 = (arr3.reshape(4, 2))
+    print(arr3)
+else:
+    #Matriz com mais colunas que linhas
+    arr3 = (arr3.reshape(2,4))
+    print(arr3)
