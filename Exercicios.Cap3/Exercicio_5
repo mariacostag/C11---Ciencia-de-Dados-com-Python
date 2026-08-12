@@ -1,0 +1,35 @@
+"""
+5. Desenvolva um programa que leia o nome, idade e sexo de n pessoas. No final, mostre:
+a.A média de idade do grupo;
+b. Quantas mulheres têm menos de 20 anos.
+Dica: em Python, os operadores booleanos básicos são and, or e not.
+"""
+
+#Lista para guardar as pessoas
+pessoas = []
+
+#Quantidade de pessoas
+n = int(input('Entre com a quantidade de pessoas: '))
+
+#Entrada dos dados
+for i in range(n):
+  nome = input('Digite o nome da pessoa: ')
+  idade = int(input('Digite a idade da pessoa: '))
+  sexo = input('Informe o sexo da pessoa (M ou F): ')
+  pessoas.append({'nome' : nome, 'idade' : idade, 'sexo' : sexo})
+
+#Média da idade do grupo
+soma_idade = 0
+for pessoa in pessoas:
+  soma_idade += pessoa['idade']
+
+media_idade = soma_idade / n
+print(f'Média de idade do grupo: {media_idade}')
+
+#Mulheres com < 20 anos
+mulheres = 0
+for pessoa in pessoas:
+  if pessoa['sexo'] == 'F' and pessoa['idade'] < 20:
+    mulheres += 1
+
+print(f'Mulheres com menos de 20 anos: {mulheres}')
