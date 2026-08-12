@@ -1,0 +1,18 @@
+"""
+2. Crie dois conjuntos, um para cada loja. Identifique quais modelos de
+smartphones cada uma delas vendem. Em seguida, mostre quais
+modelos no total você terá opção de comprar se visita-las e quais
+modelos se encontram disponíveis em ambas as lojas.
+"""
+
+#Conjuntos
+loja1 = {'iPhone 17 Pro MAX', 'Samsung Galaxy S26 Ultra', 'Motorola Moto G06', 'Motorola Eddge 70', 'iPhone 13'}
+loja2 = {'Xiaomi Redmi 15', 'iPhone 17 Pro MAX', 'Motorola Moto G06', 'Samsung Galaxy Z Flip8', 'Xiaomi Poco C850'}
+
+#Modelos no total
+total = loja1 | loja2
+print(total)
+
+#Modelos em ambas as lojas
+ambas = loja1 & loja2
+print(ambas)
