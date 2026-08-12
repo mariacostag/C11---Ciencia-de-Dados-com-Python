@@ -1,0 +1,30 @@
+"""
+4. Faça um programa que leia o nome e peso de 3 pessoas e no final mostre
+o nome da pessoa mais pesada e a mais leve.
+"""
+
+#Criação da lista
+pessoas = []
+
+#Entrada dos dados
+for i in range(3):
+  nome = input('Digite o nome da pessoa: ')
+  peso = int(input('Digite o peso da pessoa: '))
+  pessoas.append({'nome' : nome, 'peso' : peso})
+
+print(pessoas)
+
+#Verificação da pessoa mais pesada e mais leve
+pesada = pessoas[0]
+leve = pessoas[0]
+
+for pessoa in pessoas:
+    if pessoa['peso'] > pesada['peso']:
+      pesada = pessoa
+
+    if pessoa['peso'] < leve['peso']:
+      leve = pessoa
+
+#Mostra o resultado depois que o loop terminar
+print(f'Pessoa mais pesada: {pesada['nome']}')
+print(f'Pessoa mais leve: {leve['nome']}')
