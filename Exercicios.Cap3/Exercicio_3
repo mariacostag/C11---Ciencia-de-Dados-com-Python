@@ -1,0 +1,21 @@
+"""
+3. Faça um programa que leia o nome e a média de um alunoe guarde-os em um dicionário. 
+Em seguida, a partir da média (para ser aprovado deve ter média >=50), gere
+a situação final do aluno (‘AP’ ou ‘RP’), que também deve ser guardada neste dicionário. No final,
+mostre todoo conteúdo deste dicionário.
+"""
+
+#Entrada dos dados
+nome = input("Digite o nome do aluno: ")
+media = float(input("Digite a média do aluno: "))
+
+#Guardar no dicionário
+aluno = {"nome": nome, "media": media}
+
+#Situação final do aluno
+if media >= 50:
+  aluno['Situacao'] = 'AP'
+else:
+  aluno['Situacao'] = 'RP'
+
+print(aluno)
