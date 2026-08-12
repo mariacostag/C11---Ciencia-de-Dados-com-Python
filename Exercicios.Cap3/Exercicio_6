@@ -1,0 +1,22 @@
+"""
+6. Crie uma lista com ingredientes de uma receita de bolo:
+a. Adicione um novo ingrediente no final;
+b. Insira outro em uma posição específica;
+c. Remova um ingrediente pelo valor.
+"""
+
+#Lista de ingredientes
+ingredientes = ['farinha', 'açúcar', 'ovo', 'manteiga']
+print(ingredientes)
+
+#Adicionar um novo ingrediente
+ingredientes.append('fermento')
+print(ingredientes)
+
+#Adicionar em uma posição específica
+ingredientes.insert(1, 'leite')
+print(ingredientes)
+
+#Remover ingrediente pelo valor
+ingredientes.remove('manteiga')
+print(ingredientes)
