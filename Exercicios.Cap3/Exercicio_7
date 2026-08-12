@@ -1,0 +1,19 @@
+"""
+7. Usando a lista de ingredientes já preenchida para a receita de bolo, agora
+crie mais dois conjuntos representando os ingredientes que duas pessoas diferentes têm em casa. 
+Mostre quais ingredientes da receita ainda faltam comprar pelas pessoas para se fazer o bolo.
+"""
+
+#Lista de ingredientes
+ingredientes = ['farinha', 'leite', 'açúcar', 'ovo', 'fermento']
+receita = set(ingredientes) #converte a lista em conjunto
+
+#Conjuntos
+conjunto1 = {'farinha', 'leite'}
+conjunto2 = {'ovo', 'leite'}
+
+#Verificar ingredientes que ainda faltam
+tem = conjunto1.union(conjunto2)
+
+falta = receita.difference(tem)
+print(f'Ingredientes que faltam para o bolo: {falta}')
