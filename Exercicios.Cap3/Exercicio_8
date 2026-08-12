@@ -1,0 +1,21 @@
+"""
+8. Crie um dicionário para armazenar os dados de um produto (nome, preço e quantidade em estoque). 
+Peça ao usuário os dados de 3 produtos diferentes e guarde cada dicionário em uma lista. 
+No final, percorra a lista e mostre, para cada produto, seu nome eo valor total em estoque (preço
+× quantidade).
+"""
+
+#Criação do dicionário
+produtos = []
+
+#Entrada de dados
+for i in range(3):
+  nome = input('Informe o nome do produto: ')
+  preco = float(input('Informe o preço do produto: '))
+  quantidade = float(input('Informe a quantidade em estoque: '))
+  produtos.append({'nome' : nome, 'preco' : preco, 'quantidade' : quantidade})
+
+#Preço em estoque
+for produto in produtos:
+  valor_total = produto["preco"] * produto["quantidade"]
+  print(f"{produto['nome']}: R$ {valor_total}")
