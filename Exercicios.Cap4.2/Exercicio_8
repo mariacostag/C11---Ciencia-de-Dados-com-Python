@@ -1,0 +1,21 @@
+"""
+8. Encontre a empresa e o valor da missão mais cara de todo o Dataset.
+"""
+
+import numpy as np
+
+#Separar os dados
+dados = dataset[1:]
+
+# Colunas 1 é o nome da empresa e coluna 6 é o custo
+empresa = dados[:, 1]
+custo = dados[:, 6].astype(float)
+
+# Encontrar o índice da missão mais cara de todo o dataset
+indice_max = np.argmax(custos)
+
+empresa_mais_cara = empresa[indice_max]
+valor_mais_caro = custo[indice_max]
+
+print(f'Empresa da missão mais cara: {empresa_mais_cara}')
+print(f'Valor da missão mais cara: {valor_mais_caro} milhões de dólares')
