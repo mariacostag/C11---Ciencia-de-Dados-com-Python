@@ -1,0 +1,20 @@
+"""
+2. Qual a media de gastos de uma missão especial se baseando em missões que possuam valores disponíveis (>0)?
+"""
+
+import numpy as np
+
+#Separar os dados
+dados = dataset[1:]
+
+#Coluna 6 é a coluna de custos
+custos = dados[:, 6].astype(float) #convertendo para número
+
+#Filtrando as missões com valores disponíveis
+custos_disponiveis = custos[custos > 0]
+
+#Cálculo da média dos custos
+media_custos = custos_disponiveis.mean()
+
+#Saída de dados
+print(f'Média dos gastos de uma missão: {media_custos: .2f}')
