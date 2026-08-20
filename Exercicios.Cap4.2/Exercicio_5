@@ -1,0 +1,20 @@
+"""
+5. Mostre o nome das empresas que já realizaram missões espaciais,
+juntamente com suas respectivas quantidades de missões (use o for
+no final para mostrar as informações).
+"""
+
+import numpy as np
+
+#Separar os dados
+dados = dataset[1:]
+
+# Coluna 1 é a coluna do nome da empresa
+empresas = dados[:, 1]
+
+# Encontrar as empresas únicas e a quantidade de missões de cada uma
+empresas_unicas, quantidades = np.unique(empresas, return_counts=True)
+
+# Mostrar as informações usando um for
+for empresa, quantidade in zip(empresas_unicas, quantidades):
+    print(f'{empresa}: {quantidade} missões')
