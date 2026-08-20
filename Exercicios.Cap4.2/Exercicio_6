@@ -1,0 +1,23 @@
+"""
+6. Qual a porcentagem de missões realizadas com foguetes cujo status
+é "StatusRetired" (coluna Status Rocket)?
+"""
+
+import numpy as np
+
+#Separar os dados
+dados = dataset[1:]
+
+# Coluna 5 é a coluna do Status Rocket
+status_rocket = dados[:, 5]
+
+# Total de missões
+total_missoes = len(dados)
+
+# Missões com foguetes "StatusRetired"
+missoes = (status_rocket == 'StatusRetired').sum()
+
+# Porcentagem
+porcentagem_missoes = (missoes / total_missoes) * 100
+
+print(f'Porcentagem de missões com foguetes "StatusRetired": {porcentagem_missoes:.2f}%')
