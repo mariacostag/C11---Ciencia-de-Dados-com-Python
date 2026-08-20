@@ -1,0 +1,20 @@
+"""
+3. Encontre quantas missões espaciais neste Dataset foram realizadas pelos Estados Unidos (EUA).
+"""
+
+import numpy as np
+
+#Separar os dados
+dados = dataset[1:]
+
+#Coluna 2 é a coluna de local
+local = dados[:, 2]
+
+# Verificar quais missões foram realizadas nos EUA
+missoes_eua = np.char.endswith(local, 'USA')
+
+# Contar quantas missões foram realizadas nos EUA
+total_eua = missoes_eua.sum()
+
+#Saída de dados
+print(f'Missões que foram feitas nos EUA: {total_eua}')
