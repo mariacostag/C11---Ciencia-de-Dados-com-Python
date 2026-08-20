@@ -1,0 +1,26 @@
+"""
+4. Encontre qual foi a missão mais cara realizada pela empresas “SpaceX”.
+"""
+
+import numpy as np
+
+#Separar dados
+dados = dataset[1:]
+
+empresa = dados[:, 1] #nome da empresa
+nome_missao = dados[:, 4]
+custo = dados[:, 6].astype(float)
+
+#Filtrar os dados pela empresa
+spacex = empresa == 'SpaceX'
+custo_spacex = custo[spacex]
+nome_missao_spacex = nome_missao[spacex]
+
+# Encontrar o índice do maior custo
+indice_max = np.argmax(custo_spacex)
+missao_mais_cara = nome_missao_spacex[indice_max]
+valor_mais_caro = custo_spacex[indice_max]
+
+#Saída de dados
+print(f'Missão mais cara da SpaceX: {missao_mais_cara}')
+print(f'Valor da missão: {valor_mais_caro} milhões de dólares')
