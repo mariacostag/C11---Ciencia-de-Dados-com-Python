@@ -1,0 +1,23 @@
+"""
+Baseado nos commandos que vimos até o momento e no Dataset fornecido, crie 
+scripts em Python que respondam às seguintes perguntas:
+1. Apresente a porcentagem de missões que deram certo.
+"""
+
+import numpy as np
+
+#Carregar o dataset
+dataset = np.loadtxt('space.csv', delimiter = ';', dtype ='str')
+
+# Separar os dados
+dados = dataset[1:]
+
+# Verificando a quantidade de missões (usando o índice da coluna, não o nome)
+total_missoes = len(dados)
+sucesso = (dados[:, 7] == 'Success').sum() #coluna 7
+
+# Cálculo da porcentagem de missões que deram certo
+porcentagem = (sucesso / total_missoes) * 100
+
+# Saída de dados
+print(f'Porcentagem de missões que deram certo: {porcentagem:.2f}%')
