@@ -1,0 +1,14 @@
+"""
+Questão 01
+Faça um slicing no dataset para mostrar apenas o País (Country), Região (Region), População (Population),
+e Area (Area(sq.mi.)) dos países contidos neles.
+"""
+
+#Importando o dataset
+dataset = np.loadtxt('paises.csv', delimiter = ';', dtype ='str')
+
+#Selecionando os dados desejados (colunas)
+paises = dataset[0:4]
+
+#Saída de dados
+print(paises)
