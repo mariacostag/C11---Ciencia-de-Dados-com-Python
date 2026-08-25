@@ -1,0 +1,19 @@
+"""
+Questão 2
+Conte e em seguida mostre quais são as diferentes Regiões do planeta segundo este dataset.
+"""
+
+#Selecionando os dados desejados
+paises = dataset[1:, 1] #1: pula o cabeçalho
+
+#Obtendo as regiões do planeta
+regioes = np.unique(paises)
+
+#Contando quantas regiões diferentes existem
+qtd_regioes = len(regioes)
+print(f'Quantidade de regiões diferentes: {qtd_regioes}')
+
+#Mostrando as diferentes regiões
+print('Diferentes regiões do planeta: ')
+for regiao in regioes:
+    print(f'- {regiao}')
