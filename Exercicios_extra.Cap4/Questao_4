@@ -1,0 +1,14 @@
+"""
+Questão 04
+Conte quantos países são da América do Norte (NORTHERN AMERICA) segundo este dataset.
+"""
+
+#Selecionando os dados desejados
+dados = dataset[1:, 1]
+
+# Verificar quantos países são da América do Norte
+paises_america = np.char.find(dados, 'NORTHERN AMERICA') >= 0
+total_america = paises_america.sum()
+
+#Saída de dados
+print(total_america)
