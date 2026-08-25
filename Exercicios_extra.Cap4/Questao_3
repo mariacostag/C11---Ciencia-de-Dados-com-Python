@@ -1,0 +1,16 @@
+"""
+Questão 03
+Mostre qual a taxa média de alfabetização (Literacy(%)) do planeta segundo este dataset.
+"""
+
+#Selecionando os dados
+dados = dataset[1:, 9]
+
+#Convertendo os dados para float
+alfab = dados.astype(float)
+
+#Calculando a media
+media_alfab = np.mean(alfab)
+
+#Saída de dados
+print(f'Taxa média de alfabetização do planeta: {media_alfab:.2f}%')
