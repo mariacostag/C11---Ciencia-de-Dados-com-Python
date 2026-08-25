@@ -1,0 +1,22 @@
+"""
+Questão 05
+Encontre qual país da América do Sul e Caribe (LATIN AMER. & CARIB) possui a maior renda
+per capita (GDP ($ per capita)).
+"""
+
+# Limpando espaços extras da coluna Region
+dados = np.char.strip(dataset[:, 1])
+
+# Filtrando apenas os países da América do Sul e Caribe
+mascara = dados == 'LATIN AMER. & CARIB'
+
+# Selecionando os países e os valores de GDP dessa região
+paises_regiao = dataset[mascara, 0]
+gdp_regiao = dataset[mascara, 8].astype(float)   # coluna 8 = GDP ($ per capita)
+
+# Encontrando o índice do maior GDP
+idx_maior = np.argmax(gdp_regiao)
+
+#Saída de dados
+print(f'País com maior GDP per capita: {paises_regiao[idx_maior]}')
+print(f'GDP per capita: ${gdp_regiao[idx_maior]:.2f}')
