@@ -1,0 +1,26 @@
+'''
+Questão 2
+
+Para esta questão, faça o que se pede em ordem:
+
+a. Crie dois NumPy Arrays 1-D com 4 nomes de pessoas cada;
+b. Em seguida, concatene-os em um só Array;
+c. Transforme o Array final em um Array 2-D com mais colunas do que linhas;
+d. Por fim, ordene os nomes do Array 2-D em ordem decrescente;
+'''
+
+#Criação dos NumPy Arrays
+arr1 = np.array(['Maria', 'João', 'Laura', 'Ana'])
+arr2 = np.array(['Clara', 'Roselene', 'Pedro', 'Lucas'])
+
+#Concatenação dos Arrays
+arr3 = np.concatenate((arr1, arr2))
+print(f'Array concatenado: {arr3}')
+
+#Array -> Matriz com mais colunas que linhas
+mtz = arr3.reshape(2, 4)
+print(f'Array em 2D: {mtz}')
+
+#Ordenação do Array em ordem decrescente
+mtz_ordenado = np.sort(mtz, axis=None)[:: -1]
+print(f'Array ordenado de forma decrescente: {mtz_ordenado.reshape(2, 4)}')
