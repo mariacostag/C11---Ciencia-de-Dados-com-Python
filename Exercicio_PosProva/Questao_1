@@ -1,0 +1,41 @@
+'''
+Questão 1
+
+Crie um programa que leia o nome e ano de várias músicas (até que o usuário não queira mais
+cadastrar), guardando os dados de cada música em um dicionário e todos os dicionários em uma lista.
+No final, mostre:
+
+a. Quantas músicas foram cadastradas;
+b. As informações da(s) música(s) do ano mais antigo;
+'''
+
+#Dicionário com as músicas
+musicas = []
+
+#Entrada de dados
+nome = input('Nome da música: ')
+ano = int(input('Ano da música: '))
+musicas.append({'nome' : nome, 'ano' : ano})
+
+continuar = input('Deseja cadastrar outra música (S/N)? ')
+    
+while continuar == 'S':
+  nome = input('Nome da música: ')
+  ano = int(input('Ano da música: '))
+  musicas.append({'nome' : nome, 'ano' : ano})
+    
+  continuar = input("Deseja cadastrar outra música? (S/N): ")
+  if continuar != 'S':
+    break
+
+#Quantidade de músicas cadastradas
+print(f'Foram cadastradas {len(musicas)} músicas')
+
+#Verificando o ano mais antigo
+anos = np.array([m["ano"] for m in musicas]) #acesssando a chave ano do dicionário
+ano_mais_antigo = np.min(anos) #menor ano
+
+print(f'Música(s) do ano mais antigo ({ano_mais_antigo}): ')
+for m in musicas:
+    if m["ano"] == ano_mais_antigo:
+        print(f"- {m['nome']} ({m['ano']})")
