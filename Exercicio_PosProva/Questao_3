@@ -1,0 +1,63 @@
+'''
+Questão 3
+
+Os valores de cores RGBA são uma extensão dos valores de cores RGB com um canal alfa que especifica
+a opacidade de uma cor. Um valor de cor RGBA é especificado com rgba(vermelho, verde, azul, alfa).
+O parâmetro alfa é um número entre 0,0 (totalmente transparente) e 1,0 (totalmente opaco).
+Baseado nestas informações e na coleção abaixo, crie códigos e imprima os resultados que respondam
+as seguintes perguntas:
+
+a. Mostre apenas o nome das cores  que são primárias;
+b. Mostre apenas os códigos hexadecimais das cores que possuem tom azul máximo (255);
+c. A partir da coleção, extraia seus valores para criar um NumPy Array 1-D formado apenas pelo
+nome e o código hexadecimal de cada cor;
+d. Transforme o Array 1-D em um Array 2-D;
+e.Troque o nome de cada cor no Array 2-D para seu respectivo nome em Português;
+'''
+
+#Criação da coleção
+colors = [
+    {"color": "black", "type": "primary", "code": {"rgba": [255,255,255,1], "hex": "#000"}},
+    {"color": "green", "type": "secondary", "code": {"rgba": [0,255,0,0.1], "hex": "#0F0"}},
+    {"color": "yellow", "type": "primary", "code": {"rgba": [255,255,0,0.7], "hex": "#FF0"}},
+    {"color": "blue", "type": "primary", "code": {"rgba": [0,0,255,1], "hex": "#00F"}},
+]
+
+#Mostrando somente as cores primárias
+print('Cores primárias: ')
+for c in colors:
+  if c["type"] == "primary":
+    print(c["color"])
+
+#Cores com tom azul máximo (255) [2]
+print('Cores com tom azul máximo: ')
+for c in colors:
+  if c["code"]["rgba"][2] == 255:
+    print(c["code"]["hex"])
+
+#Criação do NumPy Array
+lista_arr = []
+for c in colors:
+  lista_arr.append(c["color"])
+  lista_arr.append(c["code"]["hex"])
+
+arr1 = np.array(lista_arr)
+print(f'Array 1-D: \n{arr1}')
+
+#Remodelando o Array
+mtz = arr1.reshape(4, 2)
+print(f'Matriz remodelada: {mtz}')
+
+#Traduzindo as cores
+traduzir = {
+    "black": "preto",
+    "green": "verde",
+    "yellow": "amarelo",
+    "blue": "azul"
+}
+
+mtz_br = mtz.copy() #cópia da matriz original
+for cor in mtz_br:
+  cor[0] = traduzir[cor[0]]
+
+print(f'Matriz traduzida: \n{mtz_br}')
