@@ -1,0 +1,19 @@
+'''
+1. Carregue o Dataset paises.csv e em seguida mostre:
+  a. Quais são os países da OCEANIA.
+  b. Quantos países são da OCEANIA.
+'''
+
+import numpy as np
+import pandas as pd
+
+#Carregando o Dataset
+dataset = pd.read_csv('paises.csv', sep=';')
+
+#Mostrando os países da Oceania
+oceania = dataset[dataset['Region'].str.contains('OCEANIA')]
+print('Países da Oceania: ')
+print(oceania['Country']) #países da Oceania
+
+#Mostrando quantos países são da Oceania
+print(f'Quantidade de países que são da Oceania: {len(oceania)}')
