@@ -1,0 +1,10 @@
+'''
+3. Apresente o crescimento/declínio no mercado de cada linguagem do primeiro ano para o segundo ano.
+'''
+
+#Cálculo do crescimento ou declínio
+taxa = seriesAno2 - seriesAno1
+
+#Saída de dados
+print('Crescimento/declínio de cada linguagem:')
+print(taxa)
