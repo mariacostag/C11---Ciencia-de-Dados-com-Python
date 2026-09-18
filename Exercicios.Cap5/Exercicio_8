@@ -1,0 +1,20 @@
+'''
+8. Faça um Slicing na matriz mostrando apenas as linhas A, C e E juntamente com as colunas X e Y. 
+Em seguida, mostre qual seria a soma dos elementos de cada uma destas linhas e cada uma destas colunas.
+'''
+
+#Slicing de dados
+slicing = df.loc[['A', 'C', 'E'],['X', 'Y']]
+print('Slicing da matriz original: ')
+print(slicing)
+
+#Calculando a soma de cada linha e coluna
+soma_linhas = slicing.sum(axis=1)
+soma_colunas = slicing.sum(axis=0)
+
+#Saída de dados
+print('Soma dos elementos de cada linha:')
+print(soma_linhas)
+
+print('Soma dos elementos de cada coluna: ')
+print(soma_colunas)
