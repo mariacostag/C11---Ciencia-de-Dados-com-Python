@@ -1,0 +1,14 @@
+'''
+4. Busque o nome de todos os países do Dataset que não possuem cota marítima (Coastline (coast/area 
+ratio) == 0) e guarde-os em um novo arquivo chamado noCoast.csv.
+'''
+
+#Filtrando os países que não possuem costa marítima
+noCoast = dataset[dataset['Coastline (coast/area ratio)'] == 0]['Country']
+
+#Saída de dados
+print('Países que não possuem costa marítima')
+print(noCoast)
+
+#Salvando em um novo arquivo
+noCoast.to_csv('noCoast.csv')
