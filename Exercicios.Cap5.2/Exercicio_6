@@ -1,0 +1,14 @@
+'''
+6. Agrupe os países por região e mostre as estatísticas descritivas da coluna Population de cada
+região. Em seguida, mostre apenas as 5 primeiras linhas deste resultado.
+'''
+
+#Agrupando os países por região
+group_region = dataset.groupby('Region')
+
+#Mostrando as estatísticas descritivas da coluna Population
+coluna_region = group_region.describe()['Population']
+print(coluna_region)
+
+#Mostrando apenas as primeiras 5 linhas
+print(coluna_region.head(5))
