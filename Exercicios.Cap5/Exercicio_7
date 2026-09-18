@@ -1,0 +1,15 @@
+'''
+7. Utilizando o mesmo DataFrame, apresente a média dos elementos da linha D usando a função loc() 
+como base e a soma dos elementos da linha E usando a função iloc() como base.
+'''
+
+#Puxando elementos da linha D
+linha_d = df.loc['D', ['W', 'X', 'Y', 'Z']]
+media_d = linha_d.mean()
+
+linha_e = df.iloc[4, :]
+soma_e = linha_e.sum()
+
+#Saída de dados
+print(f'Média dos elementos da linha D: {media_d}')
+print(f'Soma dos elementos da linha E: {soma_e}')
