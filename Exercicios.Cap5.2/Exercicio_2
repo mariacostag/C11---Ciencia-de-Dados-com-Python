@@ -1,0 +1,14 @@
+'''
+2. Encontre o nome e a região do país que possui a maior população segundo este Dataset.
+'''
+
+#Encontrando o país e sua região com maior população
+maior_reg = dataset.nlargest(1, 'Population')['Region']
+maior_pais = dataset.nlargest(1, 'Population')['Country']
+
+#Saída de dados
+print('País com a maior população:')
+print(maior_pais)
+
+print('Região do país com maior população:')
+print(maior_reg)
