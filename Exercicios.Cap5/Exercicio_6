@@ -1,0 +1,27 @@
+'''
+6. Utilizando o DataFrame exemplo do tópico 5.3 deste material, calcule a média dos elementos da 
+coluna X que são menores que 30.
+'''
+
+#DataFrame do exemplo 
+# Lista de labels (colunas)
+colunas = ['W', 'X', 'Y', 'Z']
+
+# Lista de labels (linhas)
+linhas = ['A', 'B', 'C', 'D', 'E']
+
+# Lista de valores
+np.random.seed(10)
+valores = np.random.randint(1, 50, [5, 4])
+
+df = pd.DataFrame(columns=colunas,
+                  index=linhas,
+                  data=valores)
+print(df)
+
+#Elementos da coluna X menores que 30
+coluna = df['X']
+media = coluna[coluna > 30].mean()
+
+#Saída de dados
+print(f'Média dos elementos maiores que 30: {media}')
