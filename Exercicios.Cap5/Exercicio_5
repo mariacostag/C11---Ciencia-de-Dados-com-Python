@@ -1,0 +1,10 @@
+'''
+5. Se estas porcentagens de crescimento/declínio se mantivessem iguais para os próximos 2 anos, qual 
+seria a linguagem mais popular?
+'''
+
+#Projetando o mesmo crescimento para 2 anos
+series2Anos = seriesAno2 + (2 *taxa)
+
+#Saída de dados
+print(f'Linguagem mais popular: {series2Anos.nlargest(1)}')
