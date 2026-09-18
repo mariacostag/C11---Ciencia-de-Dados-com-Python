@@ -1,0 +1,9 @@
+'''
+2. Os valores das Series criadas na Questão 1 representam as fatias de mercado (porcentagem) de 3
+linguagens de programação populares em dois anos consecutivos. Para cada ano, apresente a porcentagem
+total que elas juntas representam no mercado.
+'''
+
+#Saída de dados
+print(f'Porcentagem total do ano 1: {seriesAno1.sum()} %')
+print(f'Porcentagem total do ano 2: {seriesAno2.sum()} %')
