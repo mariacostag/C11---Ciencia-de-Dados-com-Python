@@ -1,0 +1,23 @@
+'''
+7. Crie uma função customizada que receba a coluna Infant mortality (per 1000 births) de um país
+e retorne o valor reduzido em 15% (simulando assim uma meta de redução da mortalidade infantil). 
+Aplique esta função à coluna usando o  método apply() e, em seguida, concatene a coluna original 
+com a coluna resultante lado a lado para se fazer uma comparação.
+'''
+
+#Recebendo a coluna desejada
+mort_infantil = dataset['Infant mortality (per 1000 births)']
+
+#Criando a função customizada
+def reduzir_mortalidade(valor):
+    return valor * 0.85
+
+#Aplicando a função à colune desejada
+nova_mortalidade = dataset['Infant mortality (per 1000 births)'].apply(reduzir_mortalidade)
+
+#Fazendo a comparação das duas colunas
+comparacao = pd.concat([dataset['Infant mortality (per 1000 births)'], nova_mortalidade], axis=1)
+comparacao.columns = ['Infant mortality (original)', 'Infant mortality (meta -15%)']
+
+#Saída de dados
+print(comparacao)
