@@ -1,0 +1,7 @@
+'''
+4. Baseado nos resultados da Questão 3, mostre apenas os dados das linguagens que tiveram crescimento.
+'''
+
+#Verificação de crescimento e saída de dados
+print('Linguagens que tiveram crescimento:')
+print(taxa[taxa > 0])
