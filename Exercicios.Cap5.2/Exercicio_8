@@ -1,0 +1,13 @@
+'''
+8. Remova a coluna Coastline (coast/area Ratio) do dataset. Em seguida, salve este novo dataset 
+em um arquivo chamado paises_sem_coastline.csv.
+'''
+
+#Removendo a coluna desejada
+dataset = dataset.drop('Coastline (coast/area ratio)', axis=1)
+
+#Salvando o novo Dataset em um novo arquivo
+dataset.to_csv('paises_sem_coastline.csv')
+
+#Saída de dados
+print(dataset.columns)
