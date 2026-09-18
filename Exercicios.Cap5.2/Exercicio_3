@@ -1,0 +1,14 @@
+'''
+3. Agrupe os países por Regiões. Em seguida, mostre a média de alfabetização (Literacy (%)) de cada
+região do planeta.
+'''
+
+#Agrupando os países por região
+group_region = dataset.groupby('Region')
+
+#Média de alfabetização de cada país
+alfab = group_region['Literacy (%)'].mean().round(2)
+
+#Saída de dados
+print('Média de alfabetização de cada região:')
+print(alfab)
