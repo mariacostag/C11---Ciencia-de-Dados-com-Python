@@ -1,0 +1,26 @@
+'''
+3. Por meio do dataset space.csv, trace um gráfico em torta ilustrando a porcentagem de missões da 
+empresa Roscosmos que deram certo e que deram errado.
+'''
+
+#Importando as bibliotecas
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+#Importando o dataset
+space = pd.read_csv('space.csv', delimiter=';')
+
+#Filtrando apenas as missões da Roscosmos
+roscosmos = space[space['Company Name'] == 'Roscosmos']
+
+#Separando e contando as missões que deram certo e errado
+sucesso = (roscosmos['Status Mission'] == 'Success').sum()
+erro = (roscosmos['Status Mission'] != 'Success').sum()
+
+#Traçando o gráfico de torta
+plt.pie(x = [sucesso, erro],
+        labels=['Missões que deram certo', 'Missões que deram errado'],
+        autopct='%1.1f%%') #para mostrar a porcentagem
+
+plt.title('Porcentagem de missões da Roscosmos')
