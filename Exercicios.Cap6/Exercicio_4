@@ -1,0 +1,31 @@
+'''
+4. Utilizando o dataset space.csv, trace um gráfico em barras com as 5 empresas que mais tiveram 
+missões com status "Failure".
+'''
+
+#Importando as bibliotecas
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+#Importando o dataset
+space = pd.read_csv('space.csv', delimiter=';')
+
+#Filtrando apenas as missões com status "Failure"
+missoes_falhas = space[space['Status Mission'] == 'Failure']
+
+# Contando quantas falhas cada empresa teve e pegando as 5 maiores
+qtd_falhas = missoes_falhas['Company Name'].value_counts()
+top5 = qtd_falhas.nlargest(5)
+
+#Nomes das empresas (eixo x)
+empresas = top5.index    
+
+#Quantidade de falhas (eixo y)
+qtd_falhas = top5.values
+
+#Traçando o gráfico em barras
+plt.bar(empresas, qtd_falhas)
+plt.xlabel('Empresa')
+plt.ylabel('Quantidade de missões com status "Failure"')
+plt.title('5 empresas com mais missões falhas')
