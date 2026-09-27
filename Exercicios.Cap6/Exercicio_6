@@ -1,0 +1,26 @@
+'''
+6. Com base nos dados do dataset space.csv, trace um gráfico em torta ilustrando a porcentagem geral 
+de foguetes com status "StatusActive" e "StatusRetired", considerando todas as empresas.
+'''
+
+#Importando as bibliotecas
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+#Importando o dataset
+space = pd.read_csv('space.csv', delimiter=';')
+
+#Contando quantos foguetes estão em cada status
+contagem_status = space['Status Rocket'].value_counts()
+
+#Filtrando os ativos e os aposentados
+ativos = contagem_status['StatusActive']
+aposentados = contagem_status['StatusRetired']
+
+#Traçando o gráfico de torta
+plt.pie([ativos, aposentados],
+        labels=['StatusActive', 'StatusRetired'],
+        autopct='%1.1f%%')
+
+plt.title('Porcentagem geral de foguetes')
