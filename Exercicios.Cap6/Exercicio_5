@@ -1,0 +1,33 @@
+'''
+5. Por meio do dataset paises.csv, trace um gráfico de dispersão relacionando a renda per capita 
+(GDP ($ per capita)) com a taxa de alfabetização (Literacy (%)) dos países da América Latina. Além 
+disso, faça com que o tamanho de cada ponto represente a população do país.
+'''
+
+#Importando as bibliotecas
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+#Importando o dataset
+dataset = pd.read_csv('paises.csv', delimiter=';')
+
+#Separando as colunas desejadas do dataset
+paises = dataset['Country'].str.strip()
+regiao = dataset['Region'].str.strip()
+
+#Filtrando os países da América Latina
+america_latina = dataset[regiao == 'LATIN AMER. & CARIB']
+
+#Filtrando a renda per capita, alfabetização e população da América Latina
+gdp = america_latina['GDP ($ per capita)']
+literacy = america_latina['Literacy (%)']
+populacao = america_latina['Population']
+
+#Traçando o gráfico de dispersão
+plt.scatter(gdp, literacy, 
+            s = populacao / 500000)
+
+plt.xlabel('PIB per capita (GDP $ per capita)')
+plt.ylabel('Taxa de alfabetização (%)')
+plt.title('PIB per capita x Alfabetização - América Latina\n(tamanho do ponto = população)')
