@@ -1,0 +1,38 @@
+'''
+7. Por meio do dataset paises.csv, trace em um mesmo plano cartesiano duas linhas com estilos 
+customizados (marcador, cor e tipo de linhas diferentes), comparando o "GDP ($ per capita)" e o 
+número de "Phones (per 1000)" dos países da Europa Ocidental (WESTERN EUROPE).
+'''
+
+#Importando as bibliotecas
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+#Importando o dataset
+paises = pd.read_csv('paises.csv', delimiter=';')
+
+#Separando as colunas desejadas do dataset
+paises = dataset['Country'].str.strip()
+regiao = dataset['Region'].str.strip()
+
+#Filtrando os países da Europa Ocidental
+europa_ocidental = dataset[regiao == 'WESTERN EUROPE']
+
+#Aplicando o filtro para celulares e a renda per capita
+paises = europa_ocidental['Country']
+gdp = europa_ocidental['GDP ($ per capita)']
+phones = europa_ocidental['Phones (per 1000)']
+
+#Traçando a linha 1: GDP — marcador círculo, cor laranja, linha sólida
+plt.plot(paises, gdp, marker='o', color='darkorange', linestyle='-', linewidth=2,
+         markersize=8, label='GDP ($ per capita)')
+
+#Traçando a linha 2: Phones — marcador triângulo, cor azul escuro, linha tracejada
+plt.plot(paises, phones, marker='^', color='darkblue', linestyle='--', linewidth=2,
+         markersize=8, label='Phones (per 1000)')
+
+plt.xlabel('País')
+plt.ylabel('Valor')
+plt.title('GDP per capita x Telefones por 1000 habitantes - Europa Ocidental')
+plt.legend()
