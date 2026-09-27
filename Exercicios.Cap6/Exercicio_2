@@ -1,0 +1,29 @@
+'''
+2. Por meio do dataset space.csv, trace um gráfico em barras mostrando quantas empresas espaciais 
+diferentes os EUA e a China possuem.
+'''
+
+#Importando as bibliotecas
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+#Importando o dataset
+space = pd.read_csv('space.csv', delimiter=';')
+
+#Filtrando os países desejados
+eua = space[space['Location'].str.contains('USA')]
+china = space[space['Location'].str.contains('China')]
+
+#Contando as empresas diferentes
+empresas_eua = np.unique(eua['Company Name'], return_counts=True)
+empresas_china = np.unique(china['Company Name'], return_counts=True)
+
+#Verificando o tamanho (0 - da tupla)
+qtd_eua = len(empresas_eua[0])
+qtd_china = len(empresas_china[0])
+
+#Traçando o gráfico de barras
+plt.bar(['EUA', 'China'], [qtd_eua, qtd_china])
+plt.ylabel('Quantidade de empresas espaciais diferentes')
+plt.title('Empresas espaciais diferentes: EUA vs China')
