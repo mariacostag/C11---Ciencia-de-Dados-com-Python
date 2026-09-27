@@ -1,0 +1,36 @@
+'''
+8. Por meio do dataset space.csv, usando o conceito de subplot(), trace dois gráficos de barras 
+separados lado a lado: à esquerda, as 5 empresas com mais missões de sucesso; à direita, as 5 
+empresas com mais missões de falha.
+'''
+
+#Importando as bibliotecas
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+#Importando o dataset
+space = pd.read_csv('space.csv', delimiter=';')
+
+#Filtrando as missões de sucesso e de falha
+sucesso = space[space['Status Mission'] == 'Success']
+falha = space[space['Status Mission'] == 'Failure']
+
+#Contando as 5 empresas com mais sucessos e as 5 com mais falhas
+top5_sucesso = sucesso['Company Name'].value_counts().nlargest(5)
+top5_falha = falha['Company Name'].value_counts().nlargest(5)
+
+#Traçando os gráficos de barras
+#Gráfico da esquerda (5 empresas com mais missões de sucesso)
+plt.subplot(1, 2, 1)
+plt.bar(top5_sucesso.index, top5_sucesso.values, color='seagreen')
+plt.title('5 empresas com mais missões de SUCESSO')
+plt.xlabel('Empresa')
+plt.ylabel('Quantidade de missões')
+
+#Gráfico da direita (5 empresas com mais missões de falha)
+plt.subplot(1, 2, 2)
+plt.bar(top5_falha.index, top5_falha.values, color='firebrick')
+plt.title('5 empresas com mais missões de FALHA')
+plt.xlabel('Empresa')
+plt.ylabel('Quantidade de missões')
