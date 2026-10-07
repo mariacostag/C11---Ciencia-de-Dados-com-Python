@@ -1,0 +1,23 @@
+'''
+3. Utilizando novamente o dataset titanic, analise a distribuição das idades dos passageiros em função 
+da classe, segmentando os dados por sexo, de modo a construi uma visualização que permita comparar a 
+tendência central, a dispersão e possíveis valores extremos entre os grupos.
+'''
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+#Importando o dataset titanic
+ds_titanic = sns.load_dataset('titanic')
+
+#Traçando o boxplot
+sns.boxplot(data=ds_titanic, 
+            x='class', 
+            y='age', 
+            hue='sex')
+plt.title('Distribuição das idades por classe e sexo - Titanic')
+plt.xlabel('Classe')
+plt.ylabel('Idade (anos)')
+plt.show()
