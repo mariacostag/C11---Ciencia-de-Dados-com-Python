@@ -1,0 +1,27 @@
+'''
+1. Utilizando o dataset Iris do Seaborn, para os dados apenas da espécia 'setosa', avalie a correlação 
+entre suas variávies numéricas, apresentando os valores das correlações e permitindo identificar quais 
+variávies estão mais correlacionadas.
+'''
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+#Importando o dataset Iris
+ds_iris = sns.load_dataset('iris')
+
+#Filtrando a espécie setosa
+setosa = ds_iris[ds_iris['species'] == 'setosa'].drop(columns='species')
+
+#Matriz de correlação
+corr = setosa.corr()
+print(corr.round(3))
+
+#Traçando o heatmap
+sns.heatmap(corr, 
+            annot=True, 
+            fmt='.2f')
+plt.title('Correlação entre variáveis - Iris')
+plt.show()
