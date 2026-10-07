@@ -1,0 +1,27 @@
+'''
+7. Utilizando o dataset paises.csv, trace um Regplot relacionando a taxa de alfabetização (Literacy ($))
+ com a mortalidade infantil (Infant mortality (per 1000 births)), customizando a cor da linha de regressão.
+'''
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+#Importando o dataset desejado
+ds_paises = pd.read_csv('paises.csv', sep=';', encoding='utf-8-sig')
+ds_paises.columns = ds_paises.columns.str.strip()
+
+#Filtrando as colunas
+x = 'Literacy (%)'
+y = 'Infant mortality (per 1000 births)'
+
+#Substituindo os valores ausentes
+ds_paises[[x, y]] = ds_paises[[x, y]].replace(0, float('nan'))
+
+#Traçando o regplot
+sns.regplot(data=ds_paises, 
+            x=x, 
+            y=y, line_kws={'color': 'red'})
+plt.title('Alfabetização x Mortalidade infantil')
+plt.show()
