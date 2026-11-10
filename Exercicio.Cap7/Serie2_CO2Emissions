@@ -1,0 +1,46 @@
+#Importando as bibliotecas necessárias
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from statsmodels.tsa.seasonal import seasonal_decompose
+
+
+#Série 2: C02 Emissions
+#Carregando o dataset necessário
+co2 = pd.read_csv('co2_emissions.csv',
+                  index_col='Year')
+
+#Transformando o índice (ano) em data e os dados de y em float
+co2.index = pd.to_datetime(co2.index, format='%Y')
+co2['CO2_Emissions'] = co2['CO2_Emissions'].astype(float)
+
+#Plotando a Time Series
+co2['CO2_Emissions'].plot(figsize=(8, 6),
+                          title='Emissões de CO2 por ano',
+                          xlabel='Ano',
+                          ylabel='Emissões de CO2',
+                          x_compat=True)
+
+#Fazendo a decomposição aditiva
+#Os dados são anuais, então usamos period=8 para separar tendência e ciclo
+decomposition_co2 = seasonal_decompose(co2['CO2_Emissions'],
+                                       model='additive',
+                                       period=8)
+
+# Plotando os componentes
+decomposition_co2.plot()
+plt.tight_layout()
+
+'''
+a) A série possui Tendência? Se sim, que tipo?
+Sim, ela possui Tendência decrescente. As emissões vão de 101 (1990) para
+39 (2020).
+
+b) A série possui Sazonalidade? Se sim, qual o período em que ela acontece?
+Não, a série não possui Sazonalidade. Os dados são anuais, então não há
+padrão que se repita em um período fixo dentro do ano.
+
+c) A série apresenta um Ciclo? Se sim, por qual razão?
+Sim, ela possui Ciclo. Sobram oscilações com picos por volta de 1992, 2000,
+2008, ou seja, a cada 8 anos
+'''
