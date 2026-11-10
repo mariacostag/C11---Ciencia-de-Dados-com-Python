@@ -1,0 +1,44 @@
+#Importando as bibliotecas necessárias
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from statsmodels.tsa.seasonal import seasonal_decompose
+
+
+#Série 1: Air Travel
+# Carregando o dataset necessário
+air = pd.read_csv('airtravel.csv',
+                  index_col='Date',
+                  parse_dates=True)
+
+#Transformando os dados de y em float
+air['Passengers'] = air['Passengers'].astype(float)
+
+#Plotando a Time Series
+air['Passengers'].plot(figsize=(8, 6),
+                       title='Passageiros de transporte aéreo por mês',
+                       xlabel='Data',
+                       ylabel='Passageiros',
+                       x_compat=True)
+
+#Fazendo a decomposição multiplicativa
+decomposition_air = seasonal_decompose(air['Passengers'],
+                                       model='multiplicative',
+                                       period=12)
+
+# Plotando os componentes
+decomposition_air.plot()
+plt.tight_layout()
+
+'''
+a) A série possui Tendência? Se sim, que tipo?
+Sim, ela possui Tendência crescente, pois a média mensal aumenta ao longo
+do tempo, indo de 381 (1958) para 428 (1959) e depois para 476 (1960).
+
+b) A série possui Sazonalidade? Se sim, qual o período em que ela acontece?
+Sim, ela possui sazonalidade com período de 12 meses
+
+c) A série apresenta um Ciclo? Se sim, por qual razão?
+Não, ela não possui Ciclo porque são somente 3 anos de dados e não há
+ondas de duração irregular e maior que 1 ano
+'''
